@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
+const authRoute = require('./routes/auth');
+const postRoute = require('./routes/posts')
 const app = express();
 
 dotenv.config();
@@ -12,8 +14,8 @@ mongoose.connect(
     ()=> console.log('connected to db')
     );
 
-const authRoute = require('./routes/auth');
 app.use(express.json())
 app.use('/api/user', authRoute);
+app.use('/api/posts', postRoute);
 
 app.listen(4000, ()=> console.log('server is running on port 4000'));
