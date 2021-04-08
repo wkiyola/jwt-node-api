@@ -29,7 +29,7 @@ router.post('/register', async (req,res)=> {
         res.status(400).send(err);
     }
 });
-
+//test get 
 router.get('/login', (req,res)=> {
     res.send('logged in');
 });
